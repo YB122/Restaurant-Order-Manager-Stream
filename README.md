@@ -1,6 +1,6 @@
-# Restaurant Order Manager — Java Collections
+# Restaurant Order Manager â€” Java Collections
 
-> Console-based Restaurant Order Management System built to master `ArrayList`, `LinkedList`, `HashMap` and `LinkedHashMap` with distinct responsibilities. This is the complete implementation for **MONTH-9 / DAY-1 — Restaurant** assignment.
+> Console-based Restaurant Order Management System built to master `ArrayList`, `LinkedList`, `HashMap` and `LinkedHashMap` with distinct responsibilities. This is the complete implementation for **MONTH-9 / DAY-1 â€” Restaurant** assignment.
 
 ---
 
@@ -9,16 +9,16 @@
 1. [Project Overview](#project-overview)
 2. [Tech Stack](#tech-stack)
 3. [Project Structure](#project-structure)
-4. [Collection Design — Why Each Collection?](#collection-design--why-each-collection)
+4. [Collection Design â€” Why Each Collection?](#collection-design--why-each-collection)
 5. [Core Domain Models](#core-domain-models)
    - [MenuItem.java](#1-menuitemjava)
    - [OrderItem.java](#2-orderitemjava)
    - [Order.java](#3-orderjava)
    - [OrderStatus.java](#4-orderstatusjava)
-6. [Restaurant.java — The Manager](#restaurantjava--the-manager)
-7. [Main.java — CLI & Input Handling](#mainjava--cli--input-handling)
+6. [Restaurant.java â€” The Manager](#restaurantjava--the-manager)
+7. [Main.java â€” CLI & Input Handling](#mainjava--cli--input-handling)
 8. [Order Lifecycle](#order-lifecycle)
-9. [Features — 14 Menu Operations](#features--14-menu-operations)
+9. [Features â€” 14 Menu Operations](#features--14-menu-operations)
 10. [Input Validation & Error Handling](#input-validation--error-handling)
 11. [How to Run](#how-to-run)
 12. [Example Session (input.txt / output.txt)](#example-session-inputtxt--outputtxt)
@@ -49,8 +49,8 @@ Assignment spec: `Restaurant_Order_Manager_Collections_Assignment(5).md` / `.pdf
 | Layer | Detail |
 |---|---|
 | **Language** | Java (Maven `maven.compiler.source/target = 26`, UTF-8) |
-| **Build** | Maven — `restaurant/pom.xml` (`groupId: org.example`, `artifactId: restaurant`, `version: 1.0-SNAPSHOT`) |
-| **IDE** | IntelliJ IDEA (`.idea/` — `misc.xml`, `compiler.xml`, `workspace.xml`, `Restaurant.iml`) |
+| **Build** | Maven â€” `restaurant/pom.xml` (`groupId: org.example`, `artifactId: restaurant`, `version: 1.0-SNAPSHOT`) |
+| **IDE** | IntelliJ IDEA (`.idea/` â€” `misc.xml`, `compiler.xml`, `workspace.xml`, `Restaurant.iml`) |
 | **Collections** | `java.util.ArrayList`, `LinkedList`, `HashMap`, `LinkedHashMap`, `Optional`, Streams |
 | **I/O** | `java.util.Scanner` on `System.in` |
 | **OS** | Tested on Windows, path `D:\ROUTE\JAVA\COURSE-CODE\MONTH-9\DAY-1\Restaurant` |
@@ -64,26 +64,26 @@ Restaurant/
 +-- Restaurant_Order_Manager_Collections_Assignment(5).md   # Full assignment spec
 +-- Restaurant_Order_Manager_Collections_Assignment(5).pdf
 +-- .idea/                                                 # IntelliJ config
-¦   +-- compiler.xml
-¦   +-- encodings.xml
-¦   +-- jarRepositories.xml
-¦   +-- misc.xml
-¦   +-- workspace.xml
-¦   +-- Restaurant.iml
+Â¦   +-- compiler.xml
+Â¦   +-- encodings.xml
+Â¦   +-- jarRepositories.xml
+Â¦   +-- misc.xml
+Â¦   +-- workspace.xml
+Â¦   +-- Restaurant.iml
 +-- restaurant/                                            # Maven module
     +-- pom.xml                                            # Java 26, UTF-8
     +-- src/
-    ¦   +-- main/
-    ¦   ¦   +-- java/org/example/
-    ¦   ¦   ¦   +-- Main.java         # 195 lines — CLI loop + safe input helpers
-    ¦   ¦   ¦   +-- Restaurant.java   # ~195 lines — business logic & 4 collections
-    ¦   ¦   ¦   +-- MenuItem.java     # Value object, auto-increment ID
-    ¦   ¦   ¦   +-- Order.java        # Aggregate of OrderItems, status, total
-    ¦   ¦   ¦   +-- OrderItem.java    # Join: MenuItem + quantity
-    ¦   ¦   ¦   +-- OrderStatus.java  # Enum PENDING/IN_KITCHEN/COMPLETED/CANCELLED
-    ¦   ¦   ¦   +-- example.zip       # Zipped snapshot of the 6 source files
-    ¦   ¦   +-- resources/            # (empty)
-    ¦   +-- test/java/                # (empty, placeholder)
+    Â¦   +-- main/
+    Â¦   Â¦   +-- java/org/example/
+    Â¦   Â¦   Â¦   +-- Main.java         # 195 lines â€” CLI loop + safe input helpers
+    Â¦   Â¦   Â¦   +-- Restaurant.java   # ~195 lines â€” business logic & 4 collections
+    Â¦   Â¦   Â¦   +-- MenuItem.java     # Value object, auto-increment ID
+    Â¦   Â¦   Â¦   +-- Order.java        # Aggregate of OrderItems, status, total
+    Â¦   Â¦   Â¦   +-- OrderItem.java    # Join: MenuItem + quantity
+    Â¦   Â¦   Â¦   +-- OrderStatus.java  # Enum PENDING/IN_KITCHEN/COMPLETED/CANCELLED
+    Â¦   Â¦   Â¦   +-- example.zip       # Zipped snapshot of the 6 source files
+    Â¦   Â¦   +-- resources/            # (empty)
+    Â¦   +-- test/java/                # (empty, placeholder)
     +-- target/
         +-- classes/org/example/*.class
         +-- input.txt                 # Sample simulated console input
@@ -94,7 +94,7 @@ Restaurant/
 
 ---
 
-## Collection Design — Why Each Collection?
+## Collection Design â€” Why Each Collection?
 
 | Field in `Restaurant.java` | Declared Type | Concrete Type | Purpose | Why This Collection? |
 |---|---|---|---|---|
@@ -122,9 +122,9 @@ private String category;
 public MenuItem(String name, double price, String category)
 ```
 
-*   `id` is **final** + auto-generated — caller cannot set a custom ID (IDs guaranteed unique, no duplicate check needed at construction).
+*   `id` is **final** + auto-generated â€” caller cannot set a custom ID (IDs guaranteed unique, no duplicate check needed at construction).
 *   Getters for all fields, setters for mutable fields (`name`, `price`, `category`) but not `id`.
-*   `toString()` ? `MenuItem{id=1, name=''Burger'', price=150.0, category=''Main Course''}` — used by `displayAllMenuItems()` (`forEach(System.out::println)`).
+*   `toString()` ? `MenuItem{id=1, name=''Burger'', price=150.0, category=''Main Course''}` â€” used by `displayAllMenuItems()` (`forEach(System.out::println)`).
 
 ### 2. `OrderItem.java`
 
@@ -166,11 +166,11 @@ Key methods:
 |---|---|
 | `addItem(OrderItem)` | `totalPrice += subTotal; orderItems.add(...)` |
 | `removeItem(OrderItem)` | `totalPrice -= subTotal; orderItems.remove(...)` |
-| `calculateTotal()` | `orderItems.stream().mapToDouble(subTotal).sum()` — recomputed from scratch (authoritative). `totalPrice` is the cached incremental value; `calculateTotal()` is not used to sync them. |
+| `calculateTotal()` | `orderItems.stream().mapToDouble(subTotal).sum()` â€” recomputed from scratch (authoritative). `totalPrice` is the cached incremental value; `calculateTotal()` is not used to sync them. |
 | `displayOrder()` | Prints ID, customer, status, each `name x qty = subTotal`, and `Total`. |
-| `toString()` | `Order{id=1, customer=''Ahmed'', status=PENDING, total=0.0, items=[Burger x2=300.0]}` — used by `displayAllOrders()` and `searchOrder()`. |
+| `toString()` | `Order{id=1, customer=''Ahmed'', status=PENDING, total=0.0, items=[Burger x2=300.0]}` â€” used by `displayAllOrders()` and `searchOrder()`. |
 
-> **Quirk:** `setTotalPrice(double)` actually *adds* (`this.totalPrice += totalPrice`) — misnamed; it is an `addToTotal`.
+> **Quirk:** `setTotalPrice(double)` actually *adds* (`this.totalPrice += totalPrice`) â€” misnamed; it is an `addToTotal`.
 
 ### 4. `OrderStatus.java`
 
@@ -180,11 +180,11 @@ Key methods:
 public enum OrderStatus { PENDING, IN_KITCHEN, COMPLETED, CANCELLED }
 ```
 
-No `String` status anywhere — all transitions go through `setOrderStatus(OrderStatus)`. This satisfies the assignment enum rule and makes illegal states unrepresentable.
+No `String` status anywhere â€” all transitions go through `setOrderStatus(OrderStatus)`. This satisfies the assignment enum rule and makes illegal states unrepresentable.
 
 ---
 
-## `Restaurant.java` — The Manager
+## `Restaurant.java` â€” The Manager
 
 **File:** `restaurant/src/main/java/org/example/Restaurant.java` (~195 lines, 4 collections)
 
@@ -210,7 +210,7 @@ private Map<Integer, Order> orderItemsMap = new LinkedHashMap<>(); // completed
 
 **`searchMenuItem(int itemID)`**
 *   Streams + `Optional<MenuItem>` ? `filter(id==itemID).findFirst()`.  
-*   ?? **Bug noted:** success branch prints `"Item with ID: " + result.get() + " not found"` — copy-paste error; should print the found item.
+*   ?? **Bug noted:** success branch prints `"Item with ID: " + result.get() + " not found"` â€” copy-paste error; should print the found item.
 
 **`createOrder(Order)`**
 *   Null / empty `customerName` check ? `ordersMap.put(order.getId(), order)` + `Order ID: X created`. Order stays in `HashMap` forever.
@@ -227,7 +227,7 @@ private Map<Integer, Order> orderItemsMap = new LinkedHashMap<>(); // completed
 *   Commented-out alternative loop kept in source.
 
 **`displayAllOrders()`**
-*   `ordersMap.values().forEach(System.out::println)` — dumps **all** orders regardless of status (registry view).
+*   `ordersMap.values().forEach(System.out::println)` â€” dumps **all** orders regardless of status (registry view).
 
 **`searchOrder(int orderID)`**
 *   `ordersMap.get(orderID)` O(1) ? prints `toString()` or `not found`. Guards `orderID>0` and empty map.
@@ -250,7 +250,7 @@ private Map<Integer, Order> orderItemsMap = new LinkedHashMap<>(); // completed
 
 ---
 
-## `Main.java` — CLI & Input Handling
+## `Main.java` â€” CLI & Input Handling
 
 **File:** `restaurant/src/main/java/org/example/Main.java` (195 lines)
 
@@ -276,7 +276,7 @@ while (exit) {
 | 2 | Remove Item | `removeMenuItem()` | `restaurant.removeMenuItem(itemID)` |
 | 3 | Display All Items | `displayAllMenuItems()` | `restaurant.displayAllMenuItems()` |
 | 4 | Search Item | `searchMenuItem()` | `restaurant.searchMenuItem(itemID)` |
-| 5 | Create Order | `createOrder()` | `restaurant.createOrder(new Order(customerName))` — ID auto-generated |
+| 5 | Create Order | `createOrder()` | `restaurant.createOrder(new Order(customerName))` â€” ID auto-generated |
 | 6 | Add Item to Order | `addItemToOrder()` | `restaurant.addItemToOrder(qty, orderID, menuItemID)` |
 | 7 | Remove Item from Order | `removeItemFromOrder()` | `restaurant.removeItemFromOrder(orderID, orderItemID)` |
 | 8 | Display All Orders | `displayAllOrders()` | `restaurant.displayAllOrders()` (note menu says "All Orders", not single) |
@@ -285,14 +285,14 @@ while (exit) {
 | 11 | Display Order By ID | `searchOrder()` | `restaurant.searchOrder(orderID)` (named "Search Order" in spec) |
 | 12 | Check Order Status | `checkOrderStatus()` | `restaurant.checkOrderStatus(orderID)` |
 | 13 | Display Completed Orders | `displayCompletedOrders()` | `restaurant.displayCompletedOrders()` |
-| 14 | Exit | — | `Exiting... Goodbye!` |
+| 14 | Exit | â€” | `Exiting... Goodbye!` |
 
 **Safe input helpers (validation loop until valid):**
 
-*   `readInt(prompt)` — `sc.nextLine()` + `Integer.parseInt`, catches `NumberFormatException`, rejects empty, prints `Invalid number...`.
-*   `readPositiveInt(prompt)` — loops `readInt` until `>0`, else `Value must be > 0`.
-*   `readPositiveDouble(prompt)` — `Double.parseDouble`, `>0`, else `Price/Value must be > 0`.
-*   `readNonEmptyLine(prompt)` — trims, rejects empty ? `Input cannot be empty`.
+*   `readInt(prompt)` â€” `sc.nextLine()` + `Integer.parseInt`, catches `NumberFormatException`, rejects empty, prints `Invalid number...`.
+*   `readPositiveInt(prompt)` â€” loops `readInt` until `>0`, else `Value must be > 0`.
+*   `readPositiveDouble(prompt)` â€” `Double.parseDouble`, `>0`, else `Price/Value must be > 0`.
+*   `readNonEmptyLine(prompt)` â€” trims, rejects empty ? `Input cannot be empty`.
 
 **Operation wrappers** (e.g. `addMenuItem()` in `Main`) use those helpers so `Restaurant` never sees malformed input, but `Restaurant` still re-validates defensively.
 
@@ -302,13 +302,13 @@ while (exit) {
 
 ```text
 new Order(customer)          --?  PENDING        (createOrder ? HashMap)
-      ¦
+      Â¦
       ? addOrderToKitchenQueue
                                  IN_KITCHEN     (added to LinkedList queue)
-      ¦
+      Â¦
       ? processNextOrder
                                  COMPLETED      (poll queue ? LinkedHashMap, stays in HashMap)
-      ¦
+      Â¦
       ?-- (future) CANCELLED     (blocked from queue/addItem paths)
 ```
 
@@ -318,32 +318,32 @@ new Order(customer)          --?  PENDING        (createOrder ? HashMap)
 
 ---
 
-## Features — 14 Menu Operations
+## Features â€” 14 Menu Operations
 
 Detailed behavior (as enforced by `Restaurant.java`):
 
-1. **Add Menu Item** — reads name/category (non-empty) + price (>0), `new MenuItem(...)` auto IDs, appends to `ArrayList`.
-2. **Remove Menu Item** — `removeIf` by ID; unique-ID invariant maintained.
-3. **Display Menu** — iterates `ArrayList`; handles empty.
-4. **Search Menu Item** — stream `filter + findFirst` by ID.
-5. **Create Order** — reads customer name, `new Order(name)` (PENDING), `put` into `HashMap`.
-6. **Add Item to Order** — resolves order via `HashMap`, resolves menu item via `ArrayList` stream, validates not COMPLETED/CANCELLED, creates `OrderItem` and appends to order''s internal `ArrayList`.
-7. **Remove Item from Order** — resolves order, blocks if terminal status, scans order''s `List<OrderItem>` by `OrderItem.id`.
-8. **Display Order(s)** — `Main.displayAllOrders()` dumps *all* orders from `HashMap`; assignment spec''s "Display Order" (single) is implemented as #11.
-9. **Add Order to Kitchen Queue** — `HashMap` ? status `IN_KITCHEN` ? `LinkedList.add` (duplicate prevention via scan).
-10. **Process Next Order** — FIFO `getFirst` + `removeFirst`, status `COMPLETED`, `LinkedHashMap.put` to preserve completion order.
-11. **Search Order** — `HashMap.get(orderID)` regardless of status.
-12. **Check Order Status** — `HashMap.get` + `getOrderStatus()`.
-13. **Display Completed Orders** — iterates `LinkedHashMap` in insertion order.
-14. **Exit** — breaks loop.
+1. **Add Menu Item** â€” reads name/category (non-empty) + price (>0), `new MenuItem(...)` auto IDs, appends to `ArrayList`.
+2. **Remove Menu Item** â€” `removeIf` by ID; unique-ID invariant maintained.
+3. **Display Menu** â€” iterates `ArrayList`; handles empty.
+4. **Search Menu Item** â€” stream `filter + findFirst` by ID.
+5. **Create Order** â€” reads customer name, `new Order(name)` (PENDING), `put` into `HashMap`.
+6. **Add Item to Order** â€” resolves order via `HashMap`, resolves menu item via `ArrayList` stream, validates not COMPLETED/CANCELLED, creates `OrderItem` and appends to order''s internal `ArrayList`.
+7. **Remove Item from Order** â€” resolves order, blocks if terminal status, scans order''s `List<OrderItem>` by `OrderItem.id`.
+8. **Display Order(s)** â€” `Main.displayAllOrders()` dumps *all* orders from `HashMap`; assignment spec''s "Display Order" (single) is implemented as #11.
+9. **Add Order to Kitchen Queue** â€” `HashMap` ? status `IN_KITCHEN` ? `LinkedList.add` (duplicate prevention via scan).
+10. **Process Next Order** â€” FIFO `getFirst` + `removeFirst`, status `COMPLETED`, `LinkedHashMap.put` to preserve completion order.
+11. **Search Order** â€” `HashMap.get(orderID)` regardless of status.
+12. **Check Order Status** â€” `HashMap.get` + `getOrderStatus()`.
+13. **Display Completed Orders** â€” iterates `LinkedHashMap` in insertion order.
+14. **Exit** â€” breaks loop.
 
 ---
 
 ## Input Validation & Error Handling
 
-*   **Centralized in `Main`:** `readPositiveInt`, `readPositiveDouble`, `readNonEmptyLine` loop until valid — user never reaches `Restaurant` with empty strings, non-numbers, or `<=0`.
+*   **Centralized in `Main`:** `readPositiveInt`, `readPositiveDouble`, `readNonEmptyLine` loop until valid â€” user never reaches `Restaurant` with empty strings, non-numbers, or `<=0`.
 *   **Defensive in `Restaurant`:** every public method re-checks `<=0`, `null`, empty `HashMap`/`LinkedList`, missing IDs, and terminal statuses (`COMPLETED`/`CANCELLED` blocks mutations).
-*   **Messages:** user-friendly — e.g. `Item with ID: 999 not found`, `Kitchen queue is empty...`, `order already cancelled or completed`, `Value must be > 0`.
+*   **Messages:** user-friendly â€” e.g. `Item with ID: 999 not found`, `Kitchen queue is empty...`, `order already cancelled or completed`, `Value must be > 0`.
 *   **No crash:** `Optional`, `null` guards, `isEmpty()` checks, `try/catch` on parsing.
 
 ---
@@ -353,11 +353,11 @@ Detailed behavior (as enforced by `Restaurant.java`):
 ### Prerequisites
 *   JDK 26 (as per `pom.xml:26`), Maven 3.9+, IntelliJ optional.
 
-### Option A — IntelliJ IDEA
+### Option A â€” IntelliJ IDEA
 1. Open `restaurant/pom.xml` as project.
 2. Run `org.example.Main` (Run ?).
 
-### Option B — Maven (CLI)
+### Option B â€” Maven (CLI)
 ```powershell
 cd D:\ROUTE\JAVA\COURSE-CODE\MONTH-9\DAY-1\Restaurant\restaurant
 mvn compile
@@ -366,7 +366,7 @@ mvn exec:java -Dexec.mainClass="org.example.Main"
 java -cp target/classes org.example.Main
 ```
 
-### Option C — Manual javac
+### Option C â€” Manual javac
 ```powershell
 javac -d out (Get-ChildItem -Recurse src/main/java/*.java)
 java -cp out org.example.Main
@@ -421,13 +421,13 @@ Successful *happy path* (manually) would be:
 
 | Requirement | Implementation |
 |---|---|
-| `ArrayList<MenuItem> menu` | `Restaurant.menuItems` — `ArrayList` |
-| `LinkedList<Order> kitchenQueue` | `Restaurant.ordersList` — `LinkedList` + `getFirst/removeFirst` |
-| `HashMap<Integer,Order> orders` | `Restaurant.ordersMap` — permanent registry |
-| `LinkedHashMap<Integer,Order> completedOrders` | `Restaurant.orderItemsMap` — `LinkedHashMap` |
-| Enum `OrderStatus` | `OrderStatus.java` — PENDING/IN_KITCHEN/COMPLETED/CANCELLED |
+| `ArrayList<MenuItem> menu` | `Restaurant.menuItems` â€” `ArrayList` |
+| `LinkedList<Order> kitchenQueue` | `Restaurant.ordersList` â€” `LinkedList` + `getFirst/removeFirst` |
+| `HashMap<Integer,Order> orders` | `Restaurant.ordersMap` â€” permanent registry |
+| `LinkedHashMap<Integer,Order> completedOrders` | `Restaurant.orderItemsMap` â€” `LinkedHashMap` |
+| Enum `OrderStatus` | `OrderStatus.java` â€” PENDING/IN_KITCHEN/COMPLETED/CANCELLED |
 | Unique IDs | Auto-increment static counters in `MenuItem`/`Order`/`OrderItem` |
-| No arrays / correct collections | Satisfied — no arrays used |
+| No arrays / correct collections | Satisfied â€” no arrays used |
 | HashMap keeps all orders | `ordersMap` never removes; `processNextOrder` only moves to `LinkedHashMap` |
 | Console-based, no DB/GUI | Pure `Scanner` + `System.out` |
 | Handle invalid IDs / empty | Guards in `Restaurant` + validation loops in `Main` |
@@ -438,7 +438,7 @@ Successful *happy path* (manually) would be:
 
 > These do not prevent the program from running but are worth fixing before submission:
 
-1. **`searchMenuItem` prints wrong message on success** — `Restaurant.java:54-56`:
+1. **`searchMenuItem` prints wrong message on success** â€” `Restaurant.java:54-56`:
    ```java
    if (result.isPresent()) {
      System.out.println("Item with ID: " + result.get() + " not found"); // ? bug
@@ -446,48 +446,36 @@ Successful *happy path* (manually) would be:
    ```
    Should be `System.out.println(result.get())` or `Found: ...`.
 
-2. **`addItemToOrder` NPE risk** — `Restaurant.java:78-94`: `Optional<MenuItem> result` is found but never assigned to `MenuItem item` (`item` stays `null`). `new OrderItem(null, qty)` will throw `NullPointerException` on `calculateSubTotal()`. Fix:
+2. **`addItemToOrder` NPE risk** â€” `Restaurant.java:78-94`: `Optional<MenuItem> result` is found but never assigned to `MenuItem item` (`item` stays `null`). `new OrderItem(null, qty)` will throw `NullPointerException` on `calculateSubTotal()`. Fix:
    ```java
    MenuItem item = result.get(); // or result.orElse(null) with check
    ```
 
-3. **`setTotalPrice` is additive, not a setter** — `Order.java:33-35`:
+3. **`setTotalPrice` is additive, not a setter** â€” `Order.java:33-35`:
    ```java
    public void setTotalPrice(double totalPrice) { this.totalPrice += totalPrice; }
    ```
    Misleading name; should be `addToTotal` or recalculated via `calculateTotal()`.
 
-4. **`totalPrice` drift** — `addItem`/`removeItem` maintain `totalPrice` incrementally, but `calculateTotal()` recomputes from scratch and the two can diverge if items are mutated. Prefer `totalPrice = calculateTotal()` after mutations.
+4. **`totalPrice` drift** â€” `addItem`/`removeItem` maintain `totalPrice` incrementally, but `calculateTotal()` recomputes from scratch and the two can diverge if items are mutated. Prefer `totalPrice = calculateTotal()` after mutations.
 
-5. **Field naming** — `ordersList` ? `kitchenQueue`, `orderItemsMap` ? `completedOrders` would match spec and avoid confusion (`orderItemsMap` sounds like `Map<OrderItem>`).
+5. **Field naming** â€” `ordersList` ? `kitchenQueue`, `orderItemsMap` ? `completedOrders` would match spec and avoid confusion (`orderItemsMap` sounds like `Map<OrderItem>`).
 
-6. **`List<Order>` vs `LinkedList<Order>`** — `ordersList` declared as `List` but uses `getFirst()/removeFirst()` (Java 21+ `SequencedCollection`). Safer to declare as `LinkedList<Order>` or `Queue<Order>` and use `poll()`/`peek()`.
+6. **`List<Order>` vs `LinkedList<Order>`** â€” `ordersList` declared as `List` but uses `getFirst()/removeFirst()` (Java 21+ `SequencedCollection`). Safer to declare as `LinkedList<Order>` or `Queue<Order>` and use `poll()`/`peek()`.
 
-7. **`displayAllOrders` vs spec** — Spec #8 is "Display Order" (single by ID); code #8 displays *all* orders. Single-order display is #11 `searchOrder`. Not a bug, just label drift between `Main.menu()` and spec table.
+7. **`displayAllOrders` vs spec** â€” Spec #8 is "Display Order" (single by ID); code #8 displays *all* orders. Single-order display is #11 `searchOrder`. Not a bug, just label drift between `Main.menu()` and spec table.
 
-8. **Commented dead code** — `removeItemFromOrder` retains commented loops; should be cleaned.
-
----
-
-## Possible Improvements
-
-*   Fix bugs #1–#2 above.
-*   Rename collections to spec names; declare queue as `Queue<Order> kitchenQueue = new LinkedList<>()` and use `offer`/`poll`.
-*   Make `Order.totalPrice` derived only (`getTotalPrice() { return calculateTotal(); }`) to eliminate cache bugs.
-*   Add `cancelOrder(int orderId)` (spec mentions CANCELLED) — currently `CANCELLED` is never set.
-*   Add uniqueness check for custom menu IDs if the design ever allows manual IDs.
-*   Add JUnit tests under `src/test/java` (currently empty) — e.g., test lifecycle PENDING?IN_KITCHEN?COMPLETED.
-*   Extract `MenuItem` search into a private `findMenuItemById` helper to DRY `addItemToOrder`/`searchMenuItem`.
-*   Use `Map.computeIfAbsent` / `getOrDefault` patterns for cleaner lookups.
+8. **Commented dead code** â€” `removeItemFromOrder` retains commented loops; should be cleaned.
 
 ---
+
 
 ## Learning Outcomes
 
 After this project you can explain:
 
 *   **Why `ArrayList` for menu?** Indexed storage, fast iteration, natural for a catalog you display/search linearly.
-*   **Why `LinkedList` for kitchen?** FIFO queue — first order in is first out; `LinkedList` gives O(1) head insertion/removal.
+*   **Why `LinkedList` for kitchen?** FIFO queue â€” first order in is first out; `LinkedList` gives O(1) head insertion/removal.
 *   **Why `HashMap` for all orders?** Permanent registry + O(1) ID lookup regardless of status; status enum separates state from storage.
 *   **Why `LinkedHashMap` for completed?** Need both hash lookup *and* insertion/completion order preserved for display.
 *   **Why `enum` for status?** Type-safe lifecycle, no magic strings, compiler-checked transitions.
@@ -496,15 +484,15 @@ After this project you can explain:
 
 ## Files Reference
 
-*   `restaurant/src/main/java/org/example/Main.java:1` — entry point, menu loop, input helpers
-*   `restaurant/src/main/java/org/example/Restaurant.java:1` — 4 collections + 13 business methods
-*   `restaurant/src/main/java/org/example/MenuItem.java:1` — `id`, `name`, `price`, `category`
-*   `restaurant/src/main/java/org/example/Order.java:1` — `ArrayList<OrderItem>`, `OrderStatus`, total
-*   `restaurant/src/main/java/org/example/OrderItem.java:1` — `MenuItem` + `quantity` ? subtotal
-*   `restaurant/src/main/java/org/example/OrderStatus.java:1` — enum
-*   `restaurant/pom.xml:1` — Maven, Java 26
-*   `Restaurant_Order_Manager_Collections_Assignment(5).md:1` — full spec (source of truth)
+*   `restaurant/src/main/java/org/example/Main.java:1` â€” entry point, menu loop, input helpers
+*   `restaurant/src/main/java/org/example/Restaurant.java:1` â€” 4 collections + 13 business methods
+*   `restaurant/src/main/java/org/example/MenuItem.java:1` â€” `id`, `name`, `price`, `category`
+*   `restaurant/src/main/java/org/example/Order.java:1` â€” `ArrayList<OrderItem>`, `OrderStatus`, total
+*   `restaurant/src/main/java/org/example/OrderItem.java:1` â€” `MenuItem` + `quantity` ? subtotal
+*   `restaurant/src/main/java/org/example/OrderStatus.java:1` â€” enum
+*   `restaurant/pom.xml:1` â€” Maven, Java 26
+*   `Restaurant_Order_Manager_Collections_Assignment(5).md:1` â€” full spec (source of truth)
 
 ---
 
-*Generated for `D:\ROUTE\JAVA\COURSE-CODE\MONTH-9\DAY-1\Restaurant` — covers every source file, every method, every collection choice, and the full run lifecycle. Fix the two noted bugs for a clean submission.*
+*Generated for `D:\ROUTE\JAVA\COURSE-CODE\MONTH-9\DAY-1\Restaurant` â€” covers every source file, every method, every collection choice, and the full run lifecycle. Fix the two noted bugs for a clean submission.*
