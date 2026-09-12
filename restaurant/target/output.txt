@@ -1,0 +1,296 @@
+﻿Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Invalid number, please enter a valid integer
+choose one from 1 to 14: Invalid Choice, choose from 1 to 14 only
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Invalid Choice, choose from 1 to 14 only
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Invalid Choice, choose from 1 to 14 only
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Item Name: Enter Item Price: Price/Value must be > 0, try again
+Enter Item Price: Price/Value must be > 0, try again
+Enter Item Price: Enter Category: Item added successfully
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: MenuItem{id=1, name='Burger', price=150.0, category='Main Course'}
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Item ID: Invalid number, please enter a valid integer
+Enter Item ID: Value must be > 0, try again
+Enter Item ID: Item with ID: 999 not found
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Item ID: Item with ID: 999 not found
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Customer Name: Input cannot be empty, try again
+Enter Customer Name: Order ID: 1 created
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Input cannot be empty, try again
+choose one from 1 to 14: Enter Order ID: Enter Item ID in Menu: Enter Item Quantity: Order with ID: 999 not found
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Order ID: Enter Item ID in Order: Order Item with ID: 1 not found or not for you
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Order{id=1, customer='Ahmed', status=PENDING, total=0.0, items=[]}
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Order ID: Order with ID: 999 not found
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Kitchen queue is empty, no order to process
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Order ID: Order with ID: 999 not found
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Enter Order ID: Order with ID: 999 not found
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: No orders found
+Menu
+1. Add Item
+2. Remove Item
+3. Display All Items
+4. Search Item
+5. Create Order
+6. Add Item to Order
+7. Remove Item from Order
+8. Display All Orders
+9. Add Order to Kitchen Queue
+10. Process Next Order
+11. Display Order By ID
+12. Check Order Status
+13. Display Completed Orders
+14. Exit
+====================
+choose one from 1 to 14: Exiting... Goodbye!
